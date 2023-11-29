@@ -1,8 +1,8 @@
-# NoFlix App
+# Noflix App
 
 ## Description
 
-NoFlix is a mobile application built with React Native and Expo. The application is designed to provide users with a platform to discover and learn about various movies. Users can search for movies, view detailed information about each movie, and even see a list of trending, upcoming, and top-rated movies.
+Noflix is a mobile application built with React Native and Expo. The application is designed to provide users with a platform to discover and learn about various movies. Users can search for movies, view detailed information about each movie, and even see a list of trending, upcoming, and top-rated movies.
 
 ## Screenshots
 ![Demo](./ss/demo.png)
@@ -15,7 +15,7 @@ Scan this QR code using [Expo Go](https://expo.dev/client)
 
 ## How to Develop Locally
 
-To develop the Flavorful application locally, you need to follow these steps:
+To develop the Noflix application locally, you need to follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install the project dependencies by running `bun install` in the terminal.
@@ -26,7 +26,7 @@ To develop the Flavorful application locally, you need to follow these steps:
 
 ## Tech Stack
 
-The Flavorful application is built using the following technologies:
+The Noflix application is built using the following technologies:
 
 - **React Native**: A framework for building native apps using React and JavaScript. It's used for building the user interface of the application.
 - **Expo**: A platform for making universal native apps for Android, iOS, and the web with JavaScript and React. It's used for setting up the development environment and building the application.
