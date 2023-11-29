@@ -48,7 +48,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   }
 
   return (
-    <View style={tw`flex-1 bg-neutral-800`}>
+    <View style={tw`flex-1 bg-neutral-800 pt-8 pb-4`}>
       <SafeAreaView style={ios ? tw`-mb-2` : tw`mb-3`}>
         <StatusBar style="light" />
         <View style={tw`flex-row justify-between items-center mx-4`}>

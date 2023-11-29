@@ -33,6 +33,9 @@ export const searchMovies = async (searchQuery: string): Promise<Movie[]> => {
   const response = await api.get<SearchMovies>("/search/movie", {
     params: {
       query: searchQuery.trim().toLowerCase(),
+      include_adult: false,
+      language: "en-US",
+      page: "1",
     },
   });
   return response.data.results;
