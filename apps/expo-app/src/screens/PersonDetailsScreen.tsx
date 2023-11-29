@@ -25,6 +25,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from ".";
 import { Movie, PersonMovie } from "@/models";
 import { LoadingIndicator } from "@/components";
+import { MovieList } from "@/components";
 
 const ios = Platform.OS === "ios";
 const verticalMargin = ios ? "" : " my-3";
@@ -149,45 +150,12 @@ const PersonDetailsScreen: React.FC<PersonDetailsScreenProps> = ({
           </View>
         </View>
 
-        {/* person movies */}
         <View style={tw`mt-6`}>
-          <Text style={tw`text-2xl text-white font-bold text-center`}>
-            Movies
-          </Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={tw`mt-6`}
-          >
-            {personMoviesQuery.data?.map((movie: PersonMovie) => (
-              <Pressable
-                key={movie.id}
-                style={tw`mr-4`}
-                onPress={() =>
-                  navigation.navigate(
-                    "MovieDetailsScreen",
-                    movie as unknown as Movie,
-                  )
-                }
-              >
-                <Image
-                  source={{
-                    uri: movie.poster_path
-                      ? getPosterPath(movie.poster_path, ImageSize.SIZE_342) ||
-                        FALLBACK_MOVIE_POSTER
-                      : undefined,
-                  }}
-                  style={tw`rounded-xl overflow-hidden h-48 w-48`}
-                />
-                <Text style={tw`mt-2 text-white text-center`}>
-                  {/* Truncate the title */}
-                  {movie.title.length > 20
-                    ? `${movie.title.slice(0, 20)}...`
-                    : movie.title}
-                </Text>
-              </Pressable>
-            ))}
-          </ScrollView>
+          <MovieList
+            title="Movies"
+            data={personMoviesQuery.data as unknown as Movie[]}
+            hideSeeAll={true}
+          />
         </View>
       </View>
     </ScrollView>
