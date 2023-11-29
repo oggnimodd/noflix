@@ -181,7 +181,10 @@ const PersonDetailsScreen: React.FC<PersonDetailsScreenProps> = ({
                   style={tw`rounded-xl overflow-hidden h-48 w-48`}
                 />
                 <Text style={tw`mt-2 text-white text-center`}>
-                  {movie.title}
+                  {/* Truncate the title */}
+                  {movie.title.length > 20
+                    ? `${movie.title.slice(0, 20)}...`
+                    : movie.title}
                 </Text>
               </Pressable>
             ))}
