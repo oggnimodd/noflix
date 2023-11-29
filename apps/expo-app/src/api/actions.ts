@@ -1,60 +1,65 @@
-import { Category, CategoryResponse, Meal, MealResponse } from "@/models";
+import {
+  UpcomingMovies,
+  TrendingMovies,
+  Movie,
+  TopRatedMovies,
+  SearchMovies,
+  SimilarMovies,
+  MovieDetails,
+  Credits,
+  PersonDetails,
+  PersonMovieCast,
+  PersonMovie,
+} from "@/models";
 import api from "./axios";
 
-export const getCategories = async (): Promise<Category[]> => {
-  const response = await api.get<CategoryResponse>("categories.php");
-  return response.data.categories;
+export const getTrendingMovies = async (): Promise<Movie[]> => {
+  const response = await api.get<TrendingMovies>("/trending/movie/day");
+  return response.data.results;
 };
 
-export const getRecipesBasedOnCategory = async (
-  category = "Beef",
-): Promise<Meal[]> => {
-  const response = await api.get<MealResponse>("filter.php", {
+export const getUpcomingMovies = async (): Promise<Movie[]> => {
+  const response = await api.get<UpcomingMovies>("/movie/upcoming");
+  return response.data.results;
+};
+
+export const getTopRatedMovies = async (): Promise<Movie[]> => {
+  const response = await api.get<TopRatedMovies>("/movie/top_rated");
+  return response.data.results;
+};
+
+export const searchMovies = async (searchQuery: string): Promise<Movie[]> => {
+  const response = await api.get<SearchMovies>("/search/movie", {
     params: {
-      c: category,
+      query: searchQuery.trim().toLowerCase(),
     },
   });
-  return response.data.meals;
+  return response.data.results;
 };
 
-export const searchRecipes = async (searchQuery: string): Promise<Meal[]> => {
-  const response = await api.get<MealResponse>("search.php", {
-    params: {
-      s: searchQuery.trim().toLowerCase(),
-    },
-  });
-  return response.data.meals;
+export const getMovieDetails = async (id: number): Promise<MovieDetails> => {
+  const response = await api.get<MovieDetails>(`/movie/${id}`);
+  return response.data;
 };
 
-export const getMealDetail = async (id: string): Promise<Meal> => {
-  const response = await api.get<MealResponse>("lookup.php", {
-    params: {
-      i: id,
-    },
-  });
-
-  return response.data.meals[0];
+export const getMovieCredits = async (id: number): Promise<Credits> => {
+  const response = await api.get<Credits>(`/movie/${id}/credits`);
+  return response.data;
 };
 
-export const collectIngredients = (meal?: Meal) => {
-  if (!meal) return [];
-  return Object.keys(meal)
-    .map((key) => {
-      if (key.indexOf("strIngredient") === 0 && meal[key as keyof Meal]) {
-        return meal[key as keyof Meal];
-      }
-    })
-    .filter((meal) => meal);
+export const getSimilarMovies = async (id: number): Promise<Movie[]> => {
+  const response = await api.get<SimilarMovies>(`/movie/${id}/similar`);
+  return response.data.results;
 };
 
-export const collectMeasures = (meal?: Meal) => {
-  if (!meal) return [];
+export const getPersonDetails = async (id: number): Promise<PersonDetails> => {
+  const response = await api.get<PersonDetails>(`/person/${id}`);
+  return response.data;
+};
 
-  return Object.keys(meal)
-    .map((key) => {
-      if (key.indexOf("strMeasure") === 0 && meal[key as keyof Meal]) {
-        return meal[key as keyof Meal];
-      }
-    })
-    .filter((meal) => meal);
+export const getPersonMovies = async (id: number): Promise<PersonMovie[]> => {
+  const response = await api.get<PersonMovieCast>(
+    `/person/${id}/movie_credits`,
+  );
+  return response.data.cast;
 };

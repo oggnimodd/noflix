@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://themealdb.com/api/json/v1/1/",
+  baseURL: "https://api.themoviedb.org/3",
+  params: {
+    api_key: process.env.EXPO_PUBLIC_API_URL,
+  },
 });
 
 export default axiosInstance;

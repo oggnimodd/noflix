@@ -35,6 +35,7 @@ export default defineConfig({
     // https://tamagui.dev/docs/intro/installation
     DEV: JSON.stringify(development),
     "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    "process.env": process.env,
   },
   resolve: {
     extensions: extensions,
@@ -67,4 +68,5 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
+  envPrefix: ["EXPO_", "VITE_"],
 });
