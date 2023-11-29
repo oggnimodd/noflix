@@ -1,7 +1,7 @@
-import { Meal } from "@/models";
+import { Cast, Movie } from "@/models";
 
 export type RootStackParamList = {
   HomeScreen: undefined;
-  RecipeDetailScreen: { item: Meal };
-  WelcomeScreen: undefined;
+  MovieDetailsScreen: Movie;
+  PersonScreen: Cast;
 };
