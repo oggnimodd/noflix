@@ -65,7 +65,7 @@ export const getPersonMovies = async (id: number): Promise<PersonMovie[]> => {
   return response.data.cast;
 };
 
-enum ImageSize {
+export enum ImageSize {
   SIZE_500 = "w500",
   SIZE_342 = "w342",
   SIZE_185 = "w185",
