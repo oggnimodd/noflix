@@ -12,6 +12,7 @@ import {
   PersonMovie,
 } from "@/models";
 import api from "./axios";
+import { IMAGE_BASE_URL } from "./constants";
 
 export const getTrendingMovies = async (): Promise<Movie[]> => {
   const response = await api.get<TrendingMovies>("/trending/movie/day");
@@ -63,3 +64,12 @@ export const getPersonMovies = async (id: number): Promise<PersonMovie[]> => {
   );
   return response.data.cast;
 };
+
+enum ImageSize {
+  SIZE_500 = "w500",
+  SIZE_342 = "w342",
+  SIZE_185 = "w185",
+}
+
+export const getPosterPath = (posterPath: string, size: ImageSize) =>
+  posterPath ? `${IMAGE_BASE_URL}/${size}/${posterPath}` : null;
