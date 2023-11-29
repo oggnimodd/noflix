@@ -1,0 +1,31 @@
+{
+  "name": "noflix",
+  "private": true,
+  "scripts": {
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "prepare": "bun prepare.js",
+    "pre-commit": "bunx lint-staged",
+    "lint": "biome check .",
+    "lint:apply": "biome check --apply .",
+    "format": "biome format .",
+    "format:fix": "biome format --write ."
+  },
+  "dependencies": {
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.3.3",
+    "@biomejs/cli-linux-x64": "^1.3.3",
+    "husky": "^8.0.3",
+    "lint-staged": "15.0.1"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx,json}": [
+      "biome check --apply .",
+      "biome format --write ."
+    ]
+  },
+  "workspaces": [
+    "apps/expo-app"
+  ]
+}
