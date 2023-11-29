@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React, { FC } from "react";
 import tw from "twrnc";
 import { Cast as CastType } from "@/models";
-import { FALLBACK_PERSON_IMAGE } from "@/api";
+import { FALLBACK_PERSON_IMAGE, ImageSize, getPosterPath } from "@/api";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/screens";
@@ -36,7 +36,11 @@ const Cast: FC<CastProps> = ({ cast }) => {
                 <Image
                   style={tw`rounded-2xl h-24 w-20`}
                   source={{
-                    uri: person?.profile_path || FALLBACK_PERSON_IMAGE,
+                    uri:
+                      getPosterPath(
+                        person?.profile_path || "",
+                        ImageSize.SIZE_185,
+                      ) || FALLBACK_PERSON_IMAGE,
                   }}
                 />
               </View>
