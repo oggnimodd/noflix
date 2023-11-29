@@ -33,11 +33,11 @@ const MovieList: React.FC<MovieListProps> = ({
     <View style={tw`mb-8 gap-y-4`}>
       <View style={tw`mx-4 flex-row justify-between items-center`}>
         <Text style={tw`text-white text-lg font-semibold`}>{title}</Text>
-        {!hideSeeAll && (
+        {/* {!hideSeeAll && (
           <Pressable>
             <Text style={tw`text-lg text-blue-500`}>See All</Text>
           </Pressable>
-        )}
+        )} */}
       </View>
 
       <ScrollView
