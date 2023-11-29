@@ -1,6 +1,6 @@
-import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
+import { View, Text, Image, Dimensions, Pressable } from "react-native";
 import React from "react";
-import Carousel from "react-native-snap-carousel";
+import { Carousel } from "react-native-snap-carousel";
 import tw from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -35,6 +35,7 @@ const TrendingMovies: React.FC<TrendingMoviesProps> = ({ data }) => {
         sliderWidth={width}
         itemWidth={width * 0.62}
         slideStyle={{ display: "flex", alignItems: "center" }}
+        vertical={false} // Add this line
       />
     </View>
   );
@@ -47,7 +48,7 @@ type MovieCardProps = {
 
 const MovieCard: React.FC<MovieCardProps> = ({ item, handleClick }) => {
   return (
-    <TouchableOpacity onPress={() => handleClick(item)}>
+    <Pressable onPress={() => handleClick(item)}>
       <Image
         style={tw.style("rounded-3xl", {
           width: width * 0.6,
@@ -59,7 +60,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ item, handleClick }) => {
             FALLBACK_MOVIE_POSTER,
         }}
       />
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

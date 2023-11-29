@@ -3,16 +3,15 @@ import tw from "twrnc";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from ".";
 import { FC } from "react";
-import { LoadingIndicator } from "@/components";
 
-type Props = NativeStackScreenProps<RootStackParamList, "WelcomeScreen">;
+type Props = NativeStackScreenProps<RootStackParamList, "MovieDetailsScreen">;
 
-const WelcomeScreen: FC<Props> = ({ navigation }) => {
+const MovieDetailsScreen: FC<Props> = ({ navigation }) => {
   return (
     <View>
-      <LoadingIndicator />
+      <Text>Hello world</Text>
     </View>
   );
 };
 
-export default WelcomeScreen;
+export default MovieDetailsScreen;

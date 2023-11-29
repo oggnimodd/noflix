@@ -27,7 +27,7 @@ const Cast: FC<CastProps> = ({ cast }) => {
           return (
             <TouchableOpacity
               key={`cast-${person.cast_id}`}
-              onPress={() => navigation.navigate("PersonScreen", person)}
+              onPress={() => navigation.navigate("PersonDetailsScreen", person)}
               style={tw`mr-4 items-center`}
             >
               <View

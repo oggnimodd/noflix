@@ -9,10 +9,13 @@ const { width, height } = Dimensions.get("window");
 const Loading: React.FC = () => {
   return (
     <View
-      style={tw.style("absolute flex-row justify-center items-center", {
-        width,
-        height,
-      })}
+      style={tw.style(
+        "absolute flex-row justify-center items-center bg-neutral-800",
+        {
+          width,
+          height,
+        },
+      )}
     >
       <Progress.CircleSnail thickness={5} size={100} color={colors.blue[500]} />
     </View>
