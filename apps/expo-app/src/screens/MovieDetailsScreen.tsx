@@ -3,7 +3,7 @@ import {
   Text,
   Image,
   Dimensions,
-  TouchableOpacity,
+  Pressable,
   ScrollView,
   Platform,
 } from "react-native";
@@ -75,19 +75,19 @@ const MovieScreen: React.FC<MovieScreenProps> = ({ navigation, route }) => {
         <SafeAreaView
           style={tw`absolute z-20 w-full flex-row justify-between items-center px-4 ${topMargin}`}
         >
-          <TouchableOpacity
+          <Pressable
             style={tw`rounded-xl p-1`}
             onPress={() => navigation.goBack()}
           >
             <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
+          <Pressable onPress={() => toggleFavourite(!isFavourite)}>
             <HeartIcon
               size="35"
               style={isFavourite ? tw`text-red-500` : tw`text-white`}
             />
-          </TouchableOpacity>
+          </Pressable>
         </SafeAreaView>
 
         <View>

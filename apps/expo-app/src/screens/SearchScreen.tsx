@@ -3,7 +3,7 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
+  Pressable,
   Image,
   ScrollView,
   TouchableWithoutFeedback,
@@ -67,12 +67,12 @@ const SearchScreen: React.FC<SearchScreenProps> = ({ navigation }) => {
             "pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider",
           )}
         />
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("HomeScreen")}
           style={tw`rounded-full p-3 m-1 bg-neutral-500`}
         >
           <XMarkIcon size="25" color="white" />
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
       {/* search results */}

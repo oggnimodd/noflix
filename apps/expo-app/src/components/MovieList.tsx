@@ -2,7 +2,7 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableOpacity,
+  Pressable,
   Image,
   Dimensions,
 } from "react-native";
@@ -34,9 +34,9 @@ const MovieList: React.FC<MovieListProps> = ({
       <View style={tw`mx-4 flex-row justify-between items-center`}>
         <Text style={tw`text-white text-lg font-semibold`}>{title}</Text>
         {!hideSeeAll && (
-          <TouchableOpacity>
+          <Pressable>
             <Text style={tw`text-lg text-blue-500`}>See All</Text>
-          </TouchableOpacity>
+          </Pressable>
         )}
       </View>
 
@@ -47,7 +47,7 @@ const MovieList: React.FC<MovieListProps> = ({
       >
         {data.map((item, index) => {
           return (
-            <TouchableOpacity
+            <Pressable
               key={`movie-${index}`}
               onPress={() => navigation.navigate("MovieDetailsScreen", item)}
               style={tw`gap-y-1 mr-4`}
@@ -68,7 +68,7 @@ const MovieList: React.FC<MovieListProps> = ({
                   ? `${item.title.slice(0, 14)}...`
                   : item.title}
               </Text>
-            </TouchableOpacity>
+            </Pressable>
           );
         })}
       </ScrollView>

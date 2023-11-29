@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
+import { View, Text, ScrollView, Pressable, Image } from "react-native";
 import React, { FC } from "react";
 import tw from "twrnc";
 import { Cast as CastType } from "@/models";
@@ -25,7 +25,7 @@ const Cast: FC<CastProps> = ({ cast }) => {
       >
         {cast?.map((person) => {
           return (
-            <TouchableOpacity
+            <Pressable
               key={`cast-${person.cast_id}`}
               onPress={() => navigation.navigate("PersonDetailsScreen", person)}
               style={tw`mr-4 items-center`}
@@ -55,7 +55,7 @@ const Cast: FC<CastProps> = ({ cast }) => {
                   ? `${person.original_name.slice(0, 10)}...`
                   : person?.original_name}
               </Text>
-            </TouchableOpacity>
+            </Pressable>
           );
         })}
       </ScrollView>

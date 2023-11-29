@@ -2,7 +2,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
   Platform,
   Dimensions,
   ScrollView,
@@ -70,19 +69,19 @@ const PersonDetailsScreen: React.FC<PersonDetailsScreenProps> = ({
       <SafeAreaView
         style={tw`flex-row justify-between items-center mx-4 z-10 ${verticalMargin}`}
       >
-        <TouchableOpacity
+        <Pressable
           style={tw`rounded-xl p-1`}
           onPress={() => navigation.goBack()}
         >
           <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
+        <Pressable onPress={() => toggleFavourite(!isFavourite)}>
           <HeartIcon
             size="35"
             style={isFavourite ? tw`text-red-500` : tw`text-white`}
           />
-        </TouchableOpacity>
+        </Pressable>
       </SafeAreaView>
 
       {/* person details */}

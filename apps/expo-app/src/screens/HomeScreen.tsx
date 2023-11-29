@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Platform,
-} from "react-native";
+import { View, Text, Pressable, ScrollView, Platform } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -56,9 +50,9 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
           <Text style={tw`text-white text-3xl font-bold`}>
             <Text style={tw`text-blue-500`}>No</Text>flix
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("SearchScreen")}>
+          <Pressable onPress={() => navigation.navigate("SearchScreen")}>
             <MagnifyingGlassIcon size="30" strokeWidth={2} color="white" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </SafeAreaView>
       <ScrollView
