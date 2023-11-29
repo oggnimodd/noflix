@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "13383afa-8066-4f0f-b74d-1051c23a5e80"
+        "projectId": "6b52f941-2b07-4411-944d-80724c7a5a38"
       }
     },
     "owner": "randomname20",
@@ -37,7 +37,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/13383afa-8066-4f0f-b74d-1051c23a5e80"
+      "url": "https://u.expo.dev/6b52f941-2b07-4411-944d-80724c7a5a38"
     }
   }
 }
